@@ -6,9 +6,13 @@ SRCDIR = src
 TESTDIR = test
 LIBS = 
 
-# Izvorne datoteke
-SOURCES = $(SRCDIR)/main.c $(SRCDIR)/file_io.c $(SRCDIR)/compute.c
+# Automatsko otkrivanje svih .c datoteka u src direktoriju
+SOURCES = $(wildcard $(SRCDIR)/*.c)
 OBJECTS = $(SOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
+
+# Automatsko otkrivanje svih .c datoteka u test direktoriju
+TEST_SOURCES = $(wildcard $(TESTDIR)/*.c)
+TEST_OBJECTS = $(TEST_SOURCES:$(TESTDIR)/%.c=$(OBJDIR)/%.o)
 
 # Cilj za izgradnju izvršnog programa
 EXEC = main
@@ -35,6 +39,14 @@ clean:
 # Cilj za pokretanje svih testova
 run_tests: $(TESTDIR)/test_file_io $(TESTDIR)/test_compute
 	./$(TESTDIR)/test_file_io
+	./$(TESTDIR)/test_compute
+
+# Cilj za pokretanje testova file_io
+run_test_file_io: $(TESTDIR)/test_file_io
+	./$(TESTDIR)/test_file_io
+
+# Cilj za pokretanje testova compute
+run_test_compute: $(TESTDIR)/test_compute
 	./$(TESTDIR)/test_compute
 
 # Pravilo za izgradnju testova
