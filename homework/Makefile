@@ -8,11 +8,11 @@ LIBS =
 
 # Automatsko otkrivanje svih .c datoteka u src direktoriju
 SOURCES = $(wildcard $(SRCDIR)/*.c)
-OBJECTS = $(SOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
+OBJECTS = $(patsubst $(SRCDIR)/%.c,$(OBJDIR)/%.o,$(SOURCES))
 
 # Automatsko otkrivanje svih .c datoteka u test direktoriju
 TEST_SOURCES = $(wildcard $(TESTDIR)/*.c)
-TEST_OBJECTS = $(TEST_SOURCES:$(TESTDIR)/%.c=$(OBJDIR)/%.o)
+TEST_OBJECTS = $(patsubst $(TESTDIR)/%.c,$(OBJDIR)/%.o,$(TEST_SOURCES))
 
 # Cilj za izgradnju izvršnog programa
 EXEC = main
@@ -34,7 +34,7 @@ $(OBJDIR):
 
 # Cilj za čišćenje svih objektnih i izvršnih datoteka
 clean:
-	rm -f $(OBJDIR)/*.o $(EXEC) $(TESTDIR)/*.o $(TESTDIR)/test_file_io $(TESTDIR)/test_compute
+	rm -f $(OBJDIR)/*.o $(EXEC) $(OBJDIR)/*.o $(TESTDIR)/test_file_io $(TESTDIR)/test_compute
 
 # Cilj za pokretanje svih testova
 run_tests: $(TESTDIR)/test_file_io $(TESTDIR)/test_compute
