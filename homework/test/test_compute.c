@@ -5,7 +5,7 @@
 void test_compute_sum() {
     int numbers[] = {1, 2, 3, 4, 5};
     int sum = compute_sum(numbers, 5);
-    assert(sum == 15);
+    assert(sum == 15); //ako sum nije 15, program se završava s greškom
 }
 
 void test_compute_average() {
@@ -24,6 +24,6 @@ int main() {
     test_compute_sum();
     test_compute_average();
     test_compute_moving_average();
-    printf("Testovi za compute prošli\n");
+    printf("Testovi za compute prošli\n"); //ako niti jedan test nema grešku, ispisuje se ova poruka
     return 0;
 }
