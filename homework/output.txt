@@ -3,4 +3,3 @@ Zbroj: 15.00
 Prosjek: 3.00
 
 Moving Average: 3.00
-123.45
