@@ -20,8 +20,6 @@
 #include "main.h"
 #include "gpio.h"
 
-
-
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -68,14 +66,12 @@ int main ( void ) {
 
  gpio_led_state ( LED3_ORANGE_ID , 1) ; // turn on
  gpio_led_state ( LED4_GREEN_ID , 1) ; // turn on
- gpio_led_state ( LED5_RED_ID , 0) ; // turn off
- gpio_led_state ( LED6_BLUE_ID , 0) ; // turn off
+ 
 
  for (i =0; i <1000000; i ++) ;
  gpio_led_state ( LED3_ORANGE_ID , 0) ; // turn off
  gpio_led_state ( LED4_GREEN_ID , 0) ; // turn off
- gpio_led_state ( LED5_RED_ID , 1) ; // turn on
- gpio_led_state ( LED6_BLUE_ID , 1) ; // turn on
+ 
  }
  }
 /* USER CODE END 0 */

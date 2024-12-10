@@ -33,16 +33,12 @@ extern "C" {
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN Private defines */
-# define LED_GPIOx GPIOD
-# define LED4_GREEN_PinNumber GPIO_PIN_12
-# define LED3_ORANGE_PinNumber GPIO_PIN_13
-# define LED5_RED_PinNumber GPIO_PIN_14
-# define LED6_BLUE_PinNumber GPIO_PIN_15
+#define LED_GPIOx GPIOG // GPIO port za LD3 i LD4
+#define LED3_ORANGE_PinNumber GPIO_PIN_13 // Pin za LD3 (Zelena LED)
+#define LED4_GREEN_PinNumber GPIO_PIN_14   // Pin za LD4 (Crvena LED)
 
 # define LED3_ORANGE_ID 1
 # define LED4_GREEN_ID 2
-# define LED5_RED_ID 3
-# define LED6_BLUE_ID 4
 /* USER CODE END Private defines */
 
 void MX_GPIO_Init(void);

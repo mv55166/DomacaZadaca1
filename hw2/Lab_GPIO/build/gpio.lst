@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc0f727q.s 			page 1
+ARM GAS  /tmp/ccOZgUeu.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc0f727q.s 			page 1
   28:Core/Src/gpio.c **** /*----------------------------------------------------------------------------*/
   29:Core/Src/gpio.c **** /* Configure GPIO                                                             */
   30:Core/Src/gpio.c **** /*----------------------------------------------------------------------------*/
-ARM GAS  /tmp/cc0f727q.s 			page 2
+ARM GAS  /tmp/ccOZgUeu.s 			page 2
 
 
   31:Core/Src/gpio.c **** /* USER CODE BEGIN 1 */
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc0f727q.s 			page 1
   65              	.LBE2:
   66              		.loc 1 48 3 view .LVU8
   49:Core/Src/gpio.c ****   __HAL_RCC_GPIOD_CLK_ENABLE();
-ARM GAS  /tmp/cc0f727q.s 			page 3
+ARM GAS  /tmp/ccOZgUeu.s 			page 3
 
 
   67              		.loc 1 49 3 view .LVU9
@@ -139,20 +139,20 @@ ARM GAS  /tmp/cc0f727q.s 			page 1
   82              		.loc 1 49 3 view .LVU14
   50:Core/Src/gpio.c **** 
   51:Core/Src/gpio.c ****   /*Configure GPIO pin Output Level */
-  52:Core/Src/gpio.c ****   HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15, GPIO_PIN_RESET);
+  52:Core/Src/gpio.c ****   HAL_GPIO_WritePin(GPIOD, GPIO_PIN_13|GPIO_PIN_14, GPIO_PIN_RESET);
   83              		.loc 1 52 3 view .LVU15
   84 003a 0B4D     		ldr	r5, .L3+4
   85 003c 2246     		mov	r2, r4
-  86 003e 4FF47041 		mov	r1, #61440
+  86 003e 4FF4C041 		mov	r1, #24576
   87 0042 2846     		mov	r0, r5
   88 0044 FFF7FEFF 		bl	HAL_GPIO_WritePin
   89              	.LVL0:
   53:Core/Src/gpio.c **** 
-  54:Core/Src/gpio.c ****   /*Configure GPIO pins : PD12 PD13 PD14 PD15 */
-  55:Core/Src/gpio.c ****   GPIO_InitStruct.Pin = GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15;
+  54:Core/Src/gpio.c ****   /*Configure GPIO pins : PD13 PD14 */
+  55:Core/Src/gpio.c ****   GPIO_InitStruct.Pin = GPIO_PIN_13|GPIO_PIN_14;
   90              		.loc 1 55 3 view .LVU16
   91              		.loc 1 55 23 is_stmt 0 view .LVU17
-  92 0048 4FF47043 		mov	r3, #61440
+  92 0048 4FF4C043 		mov	r3, #24576
   93 004c 0393     		str	r3, [sp, #12]
   56:Core/Src/gpio.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   94              		.loc 1 56 3 is_stmt 1 view .LVU18
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc0f727q.s 			page 1
   61:Core/Src/gpio.c **** }
  110              		.loc 1 61 1 is_stmt 0 view .LVU25
  111 0060 09B0     		add	sp, sp, #36
-ARM GAS  /tmp/cc0f727q.s 			page 4
+ARM GAS  /tmp/ccOZgUeu.s 			page 4
 
 
  112              	.LCFI2:
@@ -227,119 +227,74 @@ ARM GAS  /tmp/cc0f727q.s 			page 1
  151              	.LVL3:
   68:Core/Src/gpio.c **** switch ( LED_ID ) {
  152              		.loc 1 68 1 is_stmt 1 view .LVU31
- 153 000a 0138     		subs	r0, r0, #1
- 154              	.LVL4:
- 155              		.loc 1 68 1 is_stmt 0 view .LVU32
- 156 000c 0328     		cmp	r0, #3
- 157 000e 08D8     		bhi	.L5
- 158 0010 DFE800F0 		tbb	[pc, r0]
- 159              	.L8:
- 160 0014 02       		.byte	(.L11-.L8)/2
- 161 0015 08       		.byte	(.L10-.L8)/2
- 162 0016 0E       		.byte	(.L9-.L8)/2
- 163 0017 14       		.byte	(.L7-.L8)/2
-ARM GAS  /tmp/cc0f727q.s 			page 5
-
-
- 164              		.p2align 1
- 165              	.L11:
+ 153 000a 0128     		cmp	r0, #1
+ 154 000c 07D0     		beq	.L6
+ 155 000e 0228     		cmp	r0, #2
+ 156 0010 0AD1     		bne	.L5
   69:Core/Src/gpio.c **** case LED3_ORANGE_ID :
   70:Core/Src/gpio.c **** HAL_GPIO_WritePin ( GPIOD , LED3_ORANGE_PinNumber , pinState ) ;
- 166              		.loc 1 70 1 is_stmt 1 view .LVU33
- 167 0018 4FF40051 		mov	r1, #8192
- 168              	.LVL5:
- 169              		.loc 1 70 1 is_stmt 0 view .LVU34
- 170 001c 0A48     		ldr	r0, .L14
- 171              	.LVL6:
- 172              		.loc 1 70 1 view .LVU35
- 173 001e FFF7FEFF 		bl	HAL_GPIO_WritePin
- 174              	.LVL7:
   71:Core/Src/gpio.c **** break ;
- 175              		.loc 1 71 1 is_stmt 1 view .LVU36
- 176              	.L5:
   72:Core/Src/gpio.c **** case LED4_GREEN_ID :
   73:Core/Src/gpio.c **** HAL_GPIO_WritePin ( GPIOD , LED4_GREEN_PinNumber , pinState );
+ 157              		.loc 1 73 1 view .LVU32
+ 158 0012 4FF48041 		mov	r1, #16384
+ARM GAS  /tmp/ccOZgUeu.s 			page 5
+
+
+ 159              	.LVL4:
+ 160              		.loc 1 73 1 is_stmt 0 view .LVU33
+ 161 0016 0548     		ldr	r0, .L10
+ 162              	.LVL5:
+ 163              		.loc 1 73 1 view .LVU34
+ 164 0018 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 165              	.LVL6:
   74:Core/Src/gpio.c **** break ;
-  75:Core/Src/gpio.c **** case LED5_RED_ID :
-  76:Core/Src/gpio.c **** HAL_GPIO_WritePin ( GPIOD , LED5_RED_PinNumber , pinState );
-  77:Core/Src/gpio.c **** break ;
-  78:Core/Src/gpio.c **** case LED6_BLUE_ID :
-  79:Core/Src/gpio.c **** HAL_GPIO_WritePin ( GPIOD , LED6_BLUE_PinNumber , pinState );
-  80:Core/Src/gpio.c **** break ;
-  81:Core/Src/gpio.c **** }
-  82:Core/Src/gpio.c **** }
- 177              		.loc 1 82 1 is_stmt 0 view .LVU37
- 178 0022 08BD     		pop	{r3, pc}
- 179              	.LVL8:
- 180              	.L10:
-  73:Core/Src/gpio.c **** break ;
- 181              		.loc 1 73 1 is_stmt 1 view .LVU38
- 182 0024 4FF48051 		mov	r1, #4096
- 183              	.LVL9:
-  73:Core/Src/gpio.c **** break ;
- 184              		.loc 1 73 1 is_stmt 0 view .LVU39
- 185 0028 0748     		ldr	r0, .L14
- 186 002a FFF7FEFF 		bl	HAL_GPIO_WritePin
- 187              	.LVL10:
-  74:Core/Src/gpio.c **** case LED5_RED_ID :
- 188              		.loc 1 74 1 is_stmt 1 view .LVU40
- 189 002e F8E7     		b	.L5
- 190              	.LVL11:
- 191              	.L9:
-  76:Core/Src/gpio.c **** break ;
- 192              		.loc 1 76 1 view .LVU41
- 193 0030 4FF48041 		mov	r1, #16384
- 194              	.LVL12:
-  76:Core/Src/gpio.c **** break ;
- 195              		.loc 1 76 1 is_stmt 0 view .LVU42
- 196 0034 0448     		ldr	r0, .L14
- 197 0036 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 198              	.LVL13:
-  77:Core/Src/gpio.c **** case LED6_BLUE_ID :
- 199              		.loc 1 77 1 is_stmt 1 view .LVU43
- 200 003a F2E7     		b	.L5
-ARM GAS  /tmp/cc0f727q.s 			page 6
-
-
- 201              	.LVL14:
- 202              	.L7:
-  79:Core/Src/gpio.c **** break ;
- 203              		.loc 1 79 1 view .LVU44
- 204 003c 4FF40041 		mov	r1, #32768
- 205              	.LVL15:
-  79:Core/Src/gpio.c **** break ;
- 206              		.loc 1 79 1 is_stmt 0 view .LVU45
- 207 0040 0148     		ldr	r0, .L14
- 208 0042 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 209              	.LVL16:
-  80:Core/Src/gpio.c **** }
- 210              		.loc 1 80 1 is_stmt 1 view .LVU46
- 211              		.loc 1 82 1 is_stmt 0 view .LVU47
- 212 0046 ECE7     		b	.L5
- 213              	.L15:
- 214              		.align	2
- 215              	.L14:
- 216 0048 000C0240 		.word	1073875968
- 217              		.cfi_endproc
- 218              	.LFE135:
- 220              		.text
- 221              	.Letext0:
- 222              		.file 2 "/usr/lib/gcc/arm-none-eabi/13.2.1/include/stdint.h"
- 223              		.file 3 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f429xx.h"
- 224              		.file 4 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
-ARM GAS  /tmp/cc0f727q.s 			page 7
+ 166              		.loc 1 74 1 is_stmt 1 view .LVU35
+  75:Core/Src/gpio.c **** }
+  76:Core/Src/gpio.c **** }
+ 167              		.loc 1 76 1 is_stmt 0 view .LVU36
+ 168 001c 04E0     		b	.L5
+ 169              	.LVL7:
+ 170              	.L6:
+  70:Core/Src/gpio.c **** break ;
+ 171              		.loc 1 70 1 is_stmt 1 view .LVU37
+ 172 001e 4FF40051 		mov	r1, #8192
+ 173              	.LVL8:
+  70:Core/Src/gpio.c **** break ;
+ 174              		.loc 1 70 1 is_stmt 0 view .LVU38
+ 175 0022 0248     		ldr	r0, .L10
+ 176              	.LVL9:
+  70:Core/Src/gpio.c **** break ;
+ 177              		.loc 1 70 1 view .LVU39
+ 178 0024 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 179              	.LVL10:
+  71:Core/Src/gpio.c **** case LED4_GREEN_ID :
+ 180              		.loc 1 71 1 is_stmt 1 view .LVU40
+ 181              	.L5:
+ 182              		.loc 1 76 1 is_stmt 0 view .LVU41
+ 183 0028 08BD     		pop	{r3, pc}
+ 184              	.L11:
+ 185 002a 00BF     		.align	2
+ 186              	.L10:
+ 187 002c 000C0240 		.word	1073875968
+ 188              		.cfi_endproc
+ 189              	.LFE135:
+ 191              		.text
+ 192              	.Letext0:
+ 193              		.file 2 "/usr/lib/gcc/arm-none-eabi/13.2.1/include/stdint.h"
+ 194              		.file 3 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f429xx.h"
+ 195              		.file 4 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ARM GAS  /tmp/ccOZgUeu.s 			page 6
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 gpio.c
-     /tmp/cc0f727q.s:21     .text.MX_GPIO_Init:00000000 $t
-     /tmp/cc0f727q.s:27     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-     /tmp/cc0f727q.s:119    .text.MX_GPIO_Init:00000064 $d
-     /tmp/cc0f727q.s:125    .text.gpio_led_state:00000000 $t
-     /tmp/cc0f727q.s:131    .text.gpio_led_state:00000000 gpio_led_state
-     /tmp/cc0f727q.s:160    .text.gpio_led_state:00000014 $d
-     /tmp/cc0f727q.s:164    .text.gpio_led_state:00000018 $t
-     /tmp/cc0f727q.s:216    .text.gpio_led_state:00000048 $d
+     /tmp/ccOZgUeu.s:21     .text.MX_GPIO_Init:00000000 $t
+     /tmp/ccOZgUeu.s:27     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+     /tmp/ccOZgUeu.s:119    .text.MX_GPIO_Init:00000064 $d
+     /tmp/ccOZgUeu.s:125    .text.gpio_led_state:00000000 $t
+     /tmp/ccOZgUeu.s:131    .text.gpio_led_state:00000000 gpio_led_state
+     /tmp/ccOZgUeu.s:187    .text.gpio_led_state:0000002c $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin
